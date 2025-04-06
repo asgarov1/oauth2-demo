@@ -52,9 +52,9 @@ client_id=${google.client.id}
 
 ```mermaid
 sequenceDiagram
-    participant FE as Frontend
-    participant Google as Google
-    participant BE as Backend
+    participant FE as My Frontend
+    participant Google as Google Auth Server
+    participant BE as My Backend
 
     FE->>Google: 1.Open Popup with URL
     Google-->>FE: 2.Display Authentication UI
