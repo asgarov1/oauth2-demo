@@ -52,13 +52,14 @@ client_id=${google.client.id}
 
 ```mermaid
 sequenceDiagram
+    participant UserUser
     participant FE as My Frontend
     participant Google as Google Auth Server
     participant BE as My Backend
 
     FE->>Google: 1.Open Popup with URL
-    Google->>FE: 2.Display Authentication UI
-    FE->>Google: 3.User authenticates and authorizes the App
+    Google->>User: 2.Display Authentication UI
+    User->>Google: 3.User authenticates and authorizes the App
     Google->>BE: 4. Redirect to ${redirectUri} with auth_code
     BE-->>Google: 5. POST auth_code to Token Endpoint
     Google-->>BE: 6. Return Access Token
