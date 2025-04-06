@@ -22,13 +22,15 @@ import {HttpClient, HttpHeaders} from '@angular/common/http';
       </div>
       <div class="gray-content">
         <img class="sequence-diagram" src="sequence_diagram.png">
+        <p class="center mt-1">
+          <a href="https://github.com/asgarov1/oauth2-demo" type="_blank">https://github.com/asgarov1/oauth2-demo</a>
+        </p>
       </div>
     </div>
   `,
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  title = 'frontend';
   userInfo: any;
   popupCheckInterval: any = null;
 

@@ -90,3 +90,13 @@ p {
   height: 400px;
   border-radius: 1.5%;
 }
+
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.mt-1 {
+  margin-top: 1rem;
+}
