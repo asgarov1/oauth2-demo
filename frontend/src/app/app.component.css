@@ -74,6 +74,7 @@ p {
 
 .content {
   border: 1px blue solid;
+  height: 31.5rem;
 }
 
 .gray-content {
@@ -86,8 +87,8 @@ p {
 }
 
 .sequence-diagram {
-  width: 700px;
-  height: 400px;
+  width: 52rem;
+  /*height: 420px;*/
   border-radius: 1.5%;
 }
 
