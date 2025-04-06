@@ -1,5 +1,5 @@
-import {Component} from '@angular/core';
-import {RouterOutlet} from '@angular/router';
+import {Component, OnInit} from '@angular/core';
+import {ActivatedRoute, RouterOutlet} from '@angular/router';
 import {NgIf} from '@angular/common';
 import {clientId, redirectUri, scope} from './oauth2-props';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
@@ -20,7 +20,7 @@ import {HttpClient, HttpHeaders} from '@angular/common/http';
           <p><strong>Picture:</strong><img class="avatar" [src]="userInfo.picture"/></p>
         </div>
       </div>
-      <div class="gray-content">
+      <div class="gray-content" *ngIf="withSequenceDiagram">
         <img class="sequence-diagram" src="sequence_diagram.png">
         <p class="center mt-1">
           <a href="https://github.com/asgarov1/oauth2-demo" target="_blank">https://github.com/asgarov1/oauth2-demo</a>
@@ -30,11 +30,21 @@ import {HttpClient, HttpHeaders} from '@angular/common/http';
   `,
   styleUrl: './app.component.css'
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   userInfo: any;
   popupCheckInterval: any = null;
+  withSequenceDiagram = true;
 
-  constructor(private httpClient: HttpClient) {
+  constructor(private httpClient: HttpClient,
+              private route: ActivatedRoute) {
+  }
+
+  ngOnInit(): void {
+    // not going to show sequenceDiagram if withSd = false, otherwise (by default) will show it
+    this.route.queryParamMap.subscribe(params => {
+      const withSequenceDiagramValue = params.get('withSd') ?? 'true';
+      this.withSequenceDiagram = withSequenceDiagramValue === 'true'
+    });
   }
 
   protected authorizeFromGmail() {
