@@ -56,6 +56,7 @@ sequenceDiagram
     participant FE as My Frontend
     participant Google as Google Auth Server
     participant BE as My Backend
+    participant RS as Resource Server
 
     FE->>Google: 1.Open Popup with URL
     Google->>User: 2.Display Authentication UI
@@ -64,8 +65,8 @@ sequenceDiagram
     BE-->>Google: 5. POST auth_code to Token Endpoint
     Google-->>BE: 6. Return Access Token
     BE->>FE: 7. Set `google_access_token` in Cookie and Close Popup
-    FE->>Google: 8. Fetch Resource with `google_access_token`
-    Google->>FE: 9. Returns the resource
+    FE->>RS: 8. Fetch Resource with `google_access_token`
+    RS->>FE: 9. Returns the resource
 ```
 
 ---
