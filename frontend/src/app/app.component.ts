@@ -51,7 +51,7 @@ export class AppComponent {
           'Authorization': `Bearer ${googleAccessToken}`
         })
 
-        this.httpClient.get("https://www.googleapis.com/oauth2/v1/userinfo?alt=json", {headers})
+        this.httpClient.get("https://www.googleapis.com/oauth2/v1/userinfo", {headers})
           .subscribe(response => {
             this.userInfo = response;
           })
