@@ -57,10 +57,10 @@ sequenceDiagram
     participant Google as Google Auth Server
 
     FE->>Google: 1.Open Popup with URL
-    Google-->>FE: 2.Display Authentication UI
+    Google->>FE: 2.Display Authentication UI
     FE->>Google: 3.User authenticates and authorizes the App
     Google->>BE: 4. Redirect to ${redirectUri} with auth_code
-    BE->>Google: 5. POST auth_code to Token Endpoint
+    BE-->>Google: 5. POST auth_code to Token Endpoint
     Google-->>BE: 6. Return Access Token
     BE->>FE: 7. Set `google_access_token` in Cookie and Close Popup
     FE->>Google: 8. Fetch Resource with `google_access_token`
