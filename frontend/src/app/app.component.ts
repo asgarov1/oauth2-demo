@@ -17,8 +17,11 @@ import {HttpClient, HttpHeaders} from '@angular/common/http';
         <div *ngIf="userInfo">
           <p><strong>Email:</strong> {{ userInfo.email }}</p>
           <p><strong>Name:</strong> {{ userInfo.name }}</p>
-          <p><strong>Picture:</strong><img [src]="userInfo.picture"/></p>
+          <p><strong>Picture:</strong><img class="avatar" [src]="userInfo.picture"/></p>
         </div>
+      </div>
+      <div class="gray-content">
+        <img class="sequence-diagram" src="sequence_diagram.png">
       </div>
     </div>
   `,

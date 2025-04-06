@@ -56,13 +56,19 @@ sequenceDiagram
     participant BE as My Backend
     participant Google as Google Auth Server
 
-    FE->>Google: 1.Open Popup with URL
-    Google->>FE: 2.Display Authentication UI
-    FE->>Google: 3.User authenticates and authorizes the App
-    Google->>BE: 4. Redirect to ${redirectUri} with auth_code
-    BE-->>Google: 5. POST auth_code to Token Endpoint
-    Google-->>BE: 6. Return Access Token
-    BE->>FE: 7. Set `google_access_token` in Cookie and Close Popup
-    FE->>Google: 8. Fetch Resource with `google_access_token`
-    Google->>FE: 9. Returns the resource
+    Note over FE,Google: 1. FE opens a popup with the Google Auth URL
+    Note over Google,FE: 2. Google displays the authentication UI
+    Note over FE,Google: 3. User authenticates and authorizes the app
+    Note over Google,BE: 4. Google redirects to ${redirectUri} with auth_code
+    Note over BE,Google: 5. BE sends a POST request with auth_code to the token endpoint
+    Note over Google,BE: 6. Google returns an access token
+    Note over BE,FE: 7. BE sets `google_access_token` in a cookie and closes the popup
+    Note over FE,Google: 8. FE fetches a resource using `google_access_token`
+    Note over Google,FE: 9. Google returns the requested resource
 ```
+
+---
+
+## Additional Resources:
+- [OAuth2 Specification](https://datatracker.ietf.org/doc/html/rfc6749)
+- [Oauth 2.0 Video from Octa](https://www.youtube.com/watch?v=996OiexHze0)
