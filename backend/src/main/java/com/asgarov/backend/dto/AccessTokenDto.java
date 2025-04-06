@@ -1,10 +1,7 @@
 package com.asgarov.backend.dto;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import lombok.Data;
-import lombok.NoArgsConstructor;
 
-@NoArgsConstructor
 public class AccessTokenDto {
 
     @JsonProperty("access_token")
