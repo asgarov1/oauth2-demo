@@ -56,7 +56,7 @@ sequenceDiagram
     participant BE as My Backend
     participant Google as Google Auth Server
 
-    FE->>Google: 1.Open Popup with URL
+    FE->>Google: 1.Open Popup with URL        
     Google->>FE: 2.Display Authentication UI
     FE->>Google: 3.User authenticates and authorizes the App
     Google->>BE: 4. Redirect to ${redirectUri} with auth_code
