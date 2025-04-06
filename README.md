@@ -52,7 +52,7 @@ client_id=${google.client.id}
 
 ```mermaid
 sequenceDiagram
-    participant UserUser
+    participant User
     participant FE as My Frontend
     participant Google as Google Auth Server
     participant BE as My Backend
